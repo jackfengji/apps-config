@@ -18,6 +18,22 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Vundle settings
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'                " file/directory treee
+Plugin 'scrooloose/nerdcommenter'           " code commenter
+Plugin 'kien/ctrlp.vim'                     " Fuzzy file, buffer, mru, tag, etc finder
+Plugin 'vim-scripts/minibufexpl.vim'
+Plugin 'jlanzarotta/bufexplorer'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 set confirm
 set clipboard+=unnamed
 set wildmenu
@@ -49,10 +65,27 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 """""""""""""""""""""""""
 " WinManager
 """""""""""""""""""""""""
-let g:winManagerWindowLayout = "TagList|FileExplorer,BufExplorer"
+let g:NERDTree_title='NERD Tree'
+function! NERDTree_Start()
+    exec 'NERDTree'
+endfunction
+
+function! NERDTree_IsValid()
+    return 1
+endfunction
+
+let g:winManagerWindowLayout = 'NERDTree|TagList,BufExplorer'
 nmap <silent> <F8> :WMToggle<cr>
-"let g:winManagerAutoOpen = 1
+let g:winManagerAutoOpen = 1
 let g:winManagerWidth=35
+let g:persistentBehaviour=0
+
+"""""""""""""""""""""""""
+" minibufexpl
+"""""""""""""""""""""""""
+let g:miniBufExplMapWindowNavVim = 1    " 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
+let g:miniBufExplMapCTabSwitchBufs = 1  "Ubuntu不适用
+let g:miniBufExplModSelTarget = 1   " 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
 
 
 """""""""""""""""""""""""
