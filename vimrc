@@ -1,180 +1,229 @@
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2002 Sep 19
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+"t定义快捷键的前缀<Leader>
+:let mapleader = "\\"
+set pastetoggle=<leader>p
+map <C-w> <C-w><C-w>
+map q: :q
+map! jj <Esc>
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
+" 使 Y 和 D, C 行为一致
+:map Y y$
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
+" gf 打开文件默认后缀
+set suffixesadd+=.js
+
+" 启用文件类型侦测
+filetype on
+" 根据侦测到的不同类型加载对应的插件
+filetype plugin on
+" 禁止折行
+set nowrap
+
+" 自适应不同语言的智能缩进
+filetype indent on
+" 启用自动缩进
+set autoindent
+" 将制表符扩展为空格
+set expandtab
+" 设置编辑时制表符占用空格数
+set tabstop=2
+" 设置格式化时制表符占用空格数
+set shiftwidth=2
+" 让 vim 把连续数量的空格视为一个制表符
+set softtabstop=2
+" 使制表符可见
+set list listchars=tab:▸\
+
+" 基于缩进或语法进行代码折叠
+set foldmethod=indent
+set foldmethod=syntax
+" 启动 vim 时关闭折叠代码
+set nofoldenable
+
+" 启用实时搜索
+set incsearch
+" 搜索时大小写不敏感
+set ignorecase
+" 智能大小写搜索转换
+set smartcase
+" 关闭兼容模式
 set nocompatible
+" vim 自身命令行模式智能补全
+set wildmenu
+" 滚动时的保留行数
+set scrolloff=10
+" 高亮括号匹配
+set showmatch
+" 高亮括号匹配的等待时间, 1 = 1/10s
+set matchtime=1
+" backspace 的有效范围
+set backspace=indent,eol,start
+" ========== UI 设置 =========
+" 语法高亮
+syntax enable
+" 允许用指定语法高亮配色方案替换默认方案
+syntax on
+" 配色
+set background=dark
+colorscheme monokai
+" colorscheme monokai-soda
+" colorscheme solarized
 
-" Vundle settings
-filetype off
+" 显示状态栏
+set laststatus=2
+" 显示光标当前位置
+set ruler
+" 开启行号显示
+set number
+" 显示相对行号
+set relativenumber
+" 高亮显示当前行
+set cursorline
+" 高亮显示搜索结果
+set hlsearch
+" powerline 设置
+set guifont=PowerlineSymbols\ for\ Powerline
+set nocompatible
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+" 禁用响铃错误提醒
+set novisualbell
+set visualbell t_vb=
+
+" 增加历史回溯记录
+set history=1000
+" ========== UI 设置 =========
+
+
+" ========== Plugin 设置 =========
+" vbundle 设置
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'                " file/directory treee
-Plugin 'scrooloose/nerdcommenter'           " code commenter
-Plugin 'kien/ctrlp.vim'                     " Fuzzy file, buffer, mru, tag, etc finder
-Plugin 'vim-scripts/minibufexpl.vim'
-Plugin 'jlanzarotta/bufexplorer'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'L9'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'Lokaltog/vim-powerline' "状态栏
+Plugin 'scrooloose/nerdtree' "文件管理器
+Plugin 'wincent/command-t' "文件快速搜索
+Plugin 'godlygeek/tabular' "markdown 文本格式化
+Plugin 'plasticboy/vim-markdown' "markdown 支持
+Plugin 'mattn/emmet-vim' "zencoding
+Plugin 'Valloric/YouCompleteMe' "自动补全
+Plugin 'marijnh/tern_for_vim' "javascript 自动补全
+Plugin 'tpope/vim-fugitive' "git 支持
+"Plugin 'airblade/vim-gitgutter' "git 文件变化提示
+Plugin 'scrooloose/syntastic' "语法分析
+Plugin 'kchmck/vim-coffee-script' "coffee 语法高亮
+"Plugin 'groenewege/vim-less' "less 支持 (卡顿, 禁用)
+"Plugin 'skammer/vim-css-color' "让 css 中的 color 带背景色
+Plugin 'kien/ctrlp.vim' "文件快速查找
+Plugin 'nathanaelkane/vim-indent-guides' "缩进提示
+Plugin 'kshenoy/vim-signature' "书签可视化
+"Plugin 'majutsushi/tagbar' "tag
+Plugin 'yegappan/grep' "vim grep
+Plugin 'mileszs/ack.vim' "vim ack
+Plugin 'dyng/ctrlsf.vim' "全局搜索
+Plugin 'scrooloose/nerdcommenter' "快速注释
+Plugin 'bling/vim-bufferline' "buffer 状态
+Plugin 'tpope/vim-commentary' "[\\]注释
+Plugin 'othree/html5.vim' "html5
+Plugin 'elzr/vim-json' "json
+Plugin 'moll/vim-node' "node gf跳转
+"Plugin 'othree/javascript-libraries-syntax.vim'
+"Plugin 'othree/yajs.vim'
+"Plugin 'pangloss/vim-javascript' "js 语法高亮
+Plugin 'isRuslan/vim-es6'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'bronson/vim-trailing-whitespace' "行尾空格高亮
+"Plugin 'kien/rainbow_parentheses.vim' "括号高亮
+"Plugin 'posva/vim-vue'
+Plugin 'fatih/vim-go'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+" ========== Plugin 设置 =========
 
-set confirm
-set clipboard+=unnamed
-set wildmenu
-set mouse=a
-set selection=exclusive
-set selectmode=mouse,key
-set noerrorbells
+"taglist
+  "只显示当前文件的taglist，默认是显示多个
+  let Tlist_Show_One_File = 1
+  "如果taglist是最后一个窗口，则退出vim
+  let Tlist_Exit_OnlyWindow = 1
+  "在右侧窗口中显示taglist
+  let Tlist_Use_Right_Window = 1
+  "打开taglist时，光标保留在taglist窗口
+  let Tlist_GainFocus_On_ToggleOpen = 1
+  "设置ctags命令的位置
+  let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
+  "设置关闭和打开taglist窗口的快捷键
+  "nnoremap <leader>l : Tlist<CR>
 
-"""""""""""""""""""""""""
-" Tag List
-"""""""""""""""""""""""""
-map <F4> :Tlist<CR>
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Show_One_File = 1
-"let Tlist_Auto_Open = 1
-if has("unix")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n" " we specify which ctags to use for mac osx
-        let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
-    endif
-endif
+"vim-markdown
+  " 关闭自动折叠功能
+  let g:vim_markdown_folding_disabled=1
 
-"""""""""""""""""""""""""
-" SuperTab
-"""""""""""""""""""""""""
-let g:SuperTabRetainCompletionType = 2
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"zencoding
+  " 绑定快捷键
+  map <Leader><tab> <C-y>,
+  let g:user_emmet_install_global = 0
+  autocmd FileType html EmmetInstall
 
-"""""""""""""""""""""""""
-" WinManager
-"""""""""""""""""""""""""
-let g:NERDTree_title='NERD Tree'
-function! NERDTree_Start()
-    exec 'NERDTree'
-endfunction
+"nerdtree
+  " 绑定快捷键
+  :noremap <Leader>e :NERDTreeToggle<CR>
+  " 窗口宽度
+  let NERDTreeWinSize=60
+  " 窗口位置
+  let NERDTreeWinPos="left"
+  " 显示隐藏文件
+  let NERDTreeShowHidden=1
+  " 不显示帮助信息
+  let NERDTreeMinimalUI=1
+  " 删除文件时自动删除文件对应 buffer
+  let NERDTreeAutoDeleteBuffer=1
+  " 设置忽略文件类型
+  let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 
-function! NERDTree_IsValid()
-    return 1
-endfunction
+"ctrlp
+  " 绑定快捷键
+  :noremap <Leader>t :CtrlP<CR>
+  :noremap <Leader>b :CtrlPBuffer<CR>
 
-let g:winManagerWindowLayout = 'NERDTree|TagList,BufExplorer'
-nmap <silent> <F8> :WMToggle<cr>
-let g:winManagerAutoOpen = 1
-let g:winManagerWidth=35
-let g:persistentBehaviour=0
+"vim-indent-guides
+  " 随 vim 自启动
+  let g:indent_guides_enable_on_vim_startup=1
+  " 从第二层开始可视化显示缩进
+  let g:indent_guides_start_level=2
+  " 色块宽度
+  let g:indent_guides_guide_size=1
+  " 背景色
+  let g:indent_guides_auto_colors = 0
+  hi IndentGuidesOdd  ctermbg=239
+  hi IndentGuidesEven  ctermbg=237
 
-"""""""""""""""""""""""""
-" minibufexpl
-"""""""""""""""""""""""""
-let g:miniBufExplMapWindowNavVim = 1    " 按下Ctrl+h/j/k/l，可以切换到当前窗口的上下左右窗口
-let g:miniBufExplMapCTabSwitchBufs = 1  "Ubuntu不适用
-let g:miniBufExplModSelTarget = 1   " 不要在不可编辑内容的窗口（如TagList窗口）中打开选中的buffer
+"ctrlsf.vim
+  " 绑定快捷键
+  nnoremap <Leader>s :CtrlSF
 
+"html5
+  " Disable event-handler attributes support:
+  let g:html5_event_handler_attributes_complete = 0
+  " Disable RDFa attributes support:
+  let g:html5_rdfa_attributes_complete = 0
+  " Disable microdata attributes support:
+  let g:html5_microdata_attributes_complete = 0
+  " Disable WAI-ARIA attribute support:
+  let g:html5_aria_attributes_complete = 0
 
-"""""""""""""""""""""""""
-" templates
-"""""""""""""""""""""""""
-autocmd BufNewFile *.html  0r ~/.vim/template/html.tpl
-autocmd BufNewFile *.xml  0r ~/.vim/template/xml.tpl
-autocmd BufNewFile *.py  0r ~/.vim/template/python.tpl
+" neovim python support
+let g:python_host_prog = 'python2'
+let g:python3_host_prog = 'python3'
 
-"au FileType java setlocal omnifunc=javacomplete#Complete
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+" css3 syntax
+setlocal iskeyword+=-
 
-" allow backspacing over everything in insert mode
-" set backspace=indent,eol,start
+" vim-trailing-whitespace
+" 一键去除所有行尾空格 (k-vim中为,空格)
+map <leader><space> :FixWhitespace<cr>
 
-set nobackup		" do not keep a backup file, use versions instead
-set so=7            " keep 7 lines
-set number          " show line
-
-set expandtab       " expand tabs to space
-set tabstop=4       " all tabs are 4 space
-set shiftwidth=4
-set softtabstop=4
-set smarttab
-
-set lbr
-set tw=500
-
-set tags+=tags;
-set autochdir
-
-set ai "Auto indent
-set si "Smart indet
-set wrap "Wrap lines
-
-set history=300		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set rulerformat=%20(%2*%<%f%=\ %m%r\ %3l\ %c\ %p%%%)
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-set ignorecase
-syntax on
-
-map! jj <Esc>
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" This is an alternative that also works in block mode, but the deleted
-" text is lost and it only works for putting the current register.
-"vnoremap p "_dp
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-  let g:pydiction_location = '~/.vim/tools/pydiction/complete-dict'
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  augroup END
-
-else
-  set autoindent		" always set autoindenting on
-endif " has("autocmd")
