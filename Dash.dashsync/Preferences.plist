@@ -107,7 +107,7 @@
 			<key>Django_REST_Framework</key>
 			<dict>
 				<key>date</key>
-				<date>2017-11-04T07:24:09Z</date>
+				<date>2018-01-17T12:44:30Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -148,7 +148,7 @@
 			<key>React_Native</key>
 			<dict>
 				<key>date</key>
-				<date>2017-06-13T12:25:52Z</date>
+				<date>2018-01-28T14:36:07Z</date>
 				<key>entry</key>
 				<dict>
 					<key>aliases</key>
@@ -438,6 +438,13 @@
 		</dict>
 	</array>
 	<key>searchKey</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>-1</integer>
+		<key>modifiers</key>
+		<integer>8395520</integer>
+	</dict>
+	<key>searchUsingSelectedTextKey</key>
 	<dict>
 		<key>keyCode</key>
 		<integer>-1</integer>
