@@ -75,7 +75,7 @@ set ruler
 " 开启行号显示
 set number
 " 显示相对行号
-set relativenumber
+"set relativenumber
 " 高亮显示当前行
 set cursorline
 " 高亮显示搜索结果
@@ -103,10 +103,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'L9'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'Lokaltog/vim-powerline' "状态栏
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'powerline/vim-powerline' "状态栏
 Plugin 'scrooloose/nerdtree' "文件管理器
-Plugin 'wincent/command-t' "文件快速搜索
+Plugin 'Xuyuanp/nerdtree-git-plugin' "git plugin for nerdtree
+"Plugin 'wincent/command-t' "文件快速搜索
 Plugin 'godlygeek/tabular' "markdown 文本格式化
 Plugin 'plasticboy/vim-markdown' "markdown 支持
 Plugin 'mattn/emmet-vim' "zencoding
@@ -122,8 +123,8 @@ Plugin 'kien/ctrlp.vim' "文件快速查找
 Plugin 'nathanaelkane/vim-indent-guides' "缩进提示
 Plugin 'kshenoy/vim-signature' "书签可视化
 "Plugin 'majutsushi/tagbar' "tag
-Plugin 'yegappan/grep' "vim grep
-Plugin 'mileszs/ack.vim' "vim ack
+"Plugin 'yegappan/grep' "vim grep
+"Plugin 'mileszs/ack.vim' "vim ack
 Plugin 'dyng/ctrlsf.vim' "全局搜索
 Plugin 'scrooloose/nerdcommenter' "快速注释
 Plugin 'bling/vim-bufferline' "buffer 状态
@@ -140,6 +141,8 @@ Plugin 'bronson/vim-trailing-whitespace' "行尾空格高亮
 "Plugin 'kien/rainbow_parentheses.vim' "括号高亮
 "Plugin 'posva/vim-vue'
 Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-surround' " 括号引号的修改
+Plugin 'farmergreg/vim-lastplace' " 上一次打开的位置
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -184,6 +187,10 @@ filetype plugin indent on    " required
   let NERDTreeAutoDeleteBuffer=1
   " 设置忽略文件类型
   let NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+
+  autocmd vimenter * NERDTree "auto open nerdtree
+  autocmd VimEnter * wincmd p "focus to last window when open nerdtree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "ctrlp
   " 绑定快捷键
