@@ -5,11 +5,8 @@ map <C-w> <C-w><C-w>
 map q: :q
 map! jj <Esc>
 
-" 使 Y 和 D, C 行为一致
-:map Y y$
-
 " gf 打开文件默认后缀
-set suffixesadd+=.js
+" set suffixesadd+=.js
 
 " 启用文件类型侦测
 filetype on
@@ -104,7 +101,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'L9'
 "Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'powerline/vim-powerline' "状态栏
+Plugin 'Lokaltog/vim-powerline' "状态栏
 Plugin 'scrooloose/nerdtree' "文件管理器
 Plugin 'Xuyuanp/nerdtree-git-plugin' "git plugin for nerdtree
 "Plugin 'wincent/command-t' "文件快速搜索
