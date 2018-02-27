@@ -86,6 +86,9 @@ let g:Powerline_symbols = 'fancy'
 set novisualbell
 set visualbell t_vb=
 
+" autowrite when calling make
+set autowrite
+
 " 增加历史回溯记录
 set history=1000
 " ========== UI 设置 =========
@@ -140,6 +143,7 @@ Plugin 'bronson/vim-trailing-whitespace' "行尾空格高亮
 Plugin 'fatih/vim-go'
 Plugin 'tpope/vim-surround' " 括号引号的修改
 Plugin 'farmergreg/vim-lastplace' " 上一次打开的位置
+Plugin 'AndrewRadev/splitjoin.vim' " split or join block to oneline
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -231,3 +235,5 @@ setlocal iskeyword+=-
 " 一键去除所有行尾空格 (k-vim中为,空格)
 map <leader><space> :FixWhitespace<cr>
 
+" go
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
