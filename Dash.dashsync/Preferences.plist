@@ -241,12 +241,12 @@
 			<key>http://kapeli.com/feeds/C++.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2018-01-29T05:29:49Z</date>
+				<date>2018-02-26T16:32:27Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CMake.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2018-01-26T08:59:24Z</date>
+				<date>2018-02-26T14:40:57Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CSS.xml</key>
 			<dict>
@@ -366,7 +366,7 @@
 			<key>http://kapeli.com/feeds/Spring_Framework.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2018-02-24T11:16:41Z</date>
+				<date>2018-02-26T14:44:09Z</date>
 			</dict>
 			<key>https://www.mapbox.com/ios-sdk/docsets/Mapbox.xml</key>
 			<dict>
