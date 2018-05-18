@@ -213,6 +213,7 @@ filetype plugin indent on    " required
 "ctrlsf.vim
   " 绑定快捷键
   nnoremap <Leader>s :CtrlSF
+  let g:ctrlsf_ignore_dir = ["node_modules", "build", "dist"]
 
 "html5
   " Disable event-handler attributes support:
@@ -223,6 +224,10 @@ filetype plugin indent on    " required
   let g:html5_microdata_attributes_complete = 0
   " Disable WAI-ARIA attribute support:
   let g:html5_aria_attributes_complete = 0
+
+"YouCompleteMe
+  let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
 
 " neovim python support
 let g:python_host_prog = 'python2'

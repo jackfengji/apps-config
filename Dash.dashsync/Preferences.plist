@@ -308,6 +308,11 @@
 				<key>date</key>
 				<date>2018-01-16T10:03:31Z</date>
 			</dict>
+			<key>http://kapeli.com/feeds/Java_SE8.xml</key>
+			<dict>
+				<key>date</key>
+				<date>2018-03-23T04:14:16Z</date>
+			</dict>
 			<key>http://kapeli.com/feeds/Lo-Dash.xml</key>
 			<dict>
 				<key>date</key>
@@ -382,11 +387,6 @@
 				<date>2016-09-22T09:40:29Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Grunt.xml</key>
-			<dict>
-				<key>date</key>
-				<date>2016-09-22T09:40:29Z</date>
-			</dict>
-			<key>http://kapeli.com/feeds/Java_SE8.xml</key>
 			<dict>
 				<key>date</key>
 				<date>2016-09-22T09:40:29Z</date>
