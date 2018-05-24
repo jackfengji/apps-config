@@ -241,12 +241,12 @@
 			<key>http://kapeli.com/feeds/C++.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2018-02-26T16:32:27Z</date>
+				<date>2018-05-23T08:26:53Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CMake.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2018-02-26T14:40:57Z</date>
+				<date>2018-05-23T08:26:34Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/CSS.xml</key>
 			<dict>
@@ -286,7 +286,7 @@
 			<key>http://kapeli.com/feeds/Go.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2018-01-16T09:30:19Z</date>
+				<date>2018-05-23T08:26:37Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Gulp.xml</key>
 			<dict>
@@ -311,7 +311,7 @@
 			<key>http://kapeli.com/feeds/Java_SE8.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2018-03-23T04:14:16Z</date>
+				<date>2018-05-23T08:26:45Z</date>
 			</dict>
 			<key>http://kapeli.com/feeds/Lo-Dash.xml</key>
 			<dict>
@@ -371,7 +371,7 @@
 			<key>http://kapeli.com/feeds/Spring_Framework.xml</key>
 			<dict>
 				<key>date</key>
-				<date>2018-02-26T14:44:09Z</date>
+				<date>2018-05-23T08:26:45Z</date>
 			</dict>
 			<key>https://www.mapbox.com/ios-sdk/docsets/Mapbox.xml</key>
 			<dict>
